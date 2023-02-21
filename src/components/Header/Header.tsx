@@ -1,4 +1,6 @@
-function Header() {
+import Link from 'next/link'
+
+const Header: React.FC = () => {
   return (
     <header className="bg-gray-800 text-white py-4">
       <div className="container mx-auto flex justify-between items-center px-4">
@@ -6,18 +8,13 @@ function Header() {
         <nav>
           <ul className="flex space-x-4">
             <li>
-              <a href="/" className="hover:text-gray-300">
-                Home
-              </a>
+              <Link href="/" className="hover:text-gray-300">
+                Main
+              </Link>
             </li>
             <li>
               <a href="/about" className="hover:text-gray-300">
                 About
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="hover:text-gray-300">
-                Contact
               </a>
             </li>
           </ul>
@@ -25,6 +22,6 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

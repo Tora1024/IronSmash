@@ -1,4 +1,4 @@
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-800 text-white py-4">
       <div className="container mx-auto px-4">
@@ -6,6 +6,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
