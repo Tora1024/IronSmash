@@ -302,24 +302,24 @@ const characterData: Array<Character> = [
     name: 'Greninja',
     id: '55',
   },
-  {
-    image:
-      'https://www.smashbros.com/assets_v2/img/fighter/thumb_h/mii_fighter.png',
-    name: 'Mii Brawler',
-    id: '56',
-  },
-  {
-    image:
-      'https://www.smashbros.com/assets_v2/img/fighter/thumb_h/mii_fighter.png',
-    name: 'Mii Swordfighter',
-    id: '57',
-  },
-  {
-    image:
-      'https://www.smashbros.com/assets_v2/img/fighter/thumb_h/mii_fighter.png',
-    name: 'Mii Gunner',
-    id: '58',
-  },
+  // {
+  //   image:
+  //     'https://www.smashbros.com/assets_v2/img/fighter/thumb_h/mii_fighter.png',
+  //   name: 'Mii Brawler',
+  //   id: '56',
+  // },
+  // {
+  //   image:
+  //     'https://www.smashbros.com/assets_v2/img/fighter/thumb_h/mii_fighter.png',
+  //   name: 'Mii Swordfighter',
+  //   id: '57',
+  // },
+  // {
+  //   image:
+  //     'https://www.smashbros.com/assets_v2/img/fighter/thumb_h/mii_fighter.png',
+  //   name: 'Mii Gunner',
+  //   id: '58',
+  // },
   {
     image:
       'https://www.smashbros.com/assets_v2/img/fighter/thumb_h/palutena.png',
@@ -477,12 +477,12 @@ const characterData: Array<Character> = [
     name: 'Sora',
     id: '87',
   },
-  {
-    image:
-      'https://streameta.com/images/characters/SSBU/portraits/random-1.png',
-    name: 'Random',
-    id: '88',
-  },
+  // {
+  //   image:
+  //     'https://streameta.com/images/characters/SSBU/portraits/random-1.png',
+  //   name: 'Random',
+  //   id: '88',
+  // },
 ];
 
 export default characterData;

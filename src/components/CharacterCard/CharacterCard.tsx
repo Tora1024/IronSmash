@@ -1,3 +1,4 @@
+import { MutableRefObject, useState, useRef } from 'react';
 // Types
 import {
   Character,
@@ -26,7 +27,9 @@ const CharacterCard: React.FC<CharacterCardProps> = (
     winnerSelected,
   } = props;
 
-  console.log('dsds', versusResults);
+  const containerRef = useRef<HTMLInputElement | null>(null);
+  const [selectedItemIndex, setSelectedItemIndex] = useState<number>(0);
+  const [selectedRef, setSelectedRef] = useState();
   const shouldShowResults = (id: string, resultType: ResultType) => {
     return (
       versusResults.matchResults.filter((result) => {
@@ -37,11 +40,22 @@ const CharacterCard: React.FC<CharacterCardProps> = (
     );
   };
 
+  const handleNextCharacterClick = () => {
+    setSelectedItemIndex((prevIndex) => prevIndex + 1);
+    setSelectedRef(
+      containerRef.current.querySelector(
+        `[data-index="${selectedItemIndex + 1}"]`
+      )
+    );
+    selectedRef.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   return mode === Mode.Versus ? (
-    <div className="flex flex-col w-[400px]">
-      {characters.map((character) => (
+    <section className="flex flex-col w-[400px]" ref={containerRef}>
+      {characters.map((character, index) => (
         <button
           key={character.id}
+          ref={index === selectedItemIndex ? selectedRef : null}
           className={`items-center h-28 bg-black p-2 m-2 rounded-lg grid grid-cols-1 justify-between ${
             winnerSelected.winner === character.id &&
             winnerSelected.shouldAnimate
@@ -57,7 +71,7 @@ const CharacterCard: React.FC<CharacterCardProps> = (
           `}
           onClick={() => handleCharacterClick(character.id)}
         >
-          <div>
+          <section>
             {shouldShowResults(character.id, ResultType.Winner) && (
               <div className="absolute z-10 w-[368px] h-[90px] text-[60px] font-bold bg-green-500 opacity-70">
                 WIN
@@ -79,12 +93,12 @@ const CharacterCard: React.FC<CharacterCardProps> = (
               src={character.image}
               alt={character.name}
             />
-          </div>
+          </section>
         </button>
       ))}
-    </div>
+    </section>
   ) : (
-    <div className="grid grid-cols-3 gap-4">
+    <section className="grid grid-cols-3 gap-4">
       {characters.map((character) => (
         <div
           key={character.id}
@@ -97,7 +111,7 @@ const CharacterCard: React.FC<CharacterCardProps> = (
           <img src={character.image} alt={character.name} />
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

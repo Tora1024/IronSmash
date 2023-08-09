@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Header: React.FC = () => {
   return (
     <header className="bg-[#1b1a1a] text-white py-4">
-      <div className="container mx-auto flex justify-between items-center px-4">
+      <section className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center w-20">
           <h1 className="text-3xl font-bold">Iron</h1>
           <Image src="/logo.png" alt="versus" width="65" height="100" />
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
             </li>
           </ul>
         </nav>
-      </div>
+      </section>
     </header>
   );
 };

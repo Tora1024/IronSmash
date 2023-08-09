@@ -13,7 +13,7 @@ const VersusCard: React.FC<VersusCardProps> = (props: VersusCardProps) => {
       ? 65
       : 65 + (currentMatch.matchNumber * 112 + currentMatch.matchNumber * 16);
   return (
-    <div
+    <section
       className={`${
         currentMatch.matchNumber < 44 ? 'flex flex-col w-[300px]' : 'hidden'
       }`}
@@ -38,7 +38,7 @@ const VersusCard: React.FC<VersusCardProps> = (props: VersusCardProps) => {
           height="64"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

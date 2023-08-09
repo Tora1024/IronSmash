@@ -25,7 +25,8 @@ interface CharacterMatcherProps {
 const CharacterMatcher: React.FC<CharacterMatcherProps> = ({ characters }) => {
   const { shuffledFirstHalf, shuffledSecondHalf, randomizedMatches } =
     shuffleForVersus(characters);
-  const [numPlayers, setNumPlayers] = useState(1);
+  /* This will be turned on again when single player mode is completed */
+  // const [numPlayers, setNumPlayers] = useState(1);
   const [numRandomizations, setNumRandomizations] = useState(0);
   const [versusMatches, setVersusMatches] = useState<VersusState>({
     firstHalfToRender: shuffledFirstHalf,
@@ -144,7 +145,7 @@ const CharacterMatcher: React.FC<CharacterMatcherProps> = ({ characters }) => {
       );
     } else {
       return (
-        <div className="flex justify-between w-[1200px]">
+        <section className="flex justify-between w-[1200px]">
           <div>
             <Image
               className=""
@@ -178,7 +179,7 @@ const CharacterMatcher: React.FC<CharacterMatcherProps> = ({ characters }) => {
               versusResults={versusResults}
             />
           </div>
-        </div>
+        </section>
       );
     }
   };
@@ -200,14 +201,25 @@ const CharacterMatcher: React.FC<CharacterMatcherProps> = ({ characters }) => {
           <option value={2}>2 players</option>
         </select>
       </div> */}
-      <div className="mb-4">
+      <section className="flex flex-col items-center justify-center mb-4">
+        {numRandomizations === 0 && (
+          <div className="border-2 border-solid rounded border-slate-800 mb-4  p-2 w-96 text-justify">
+            Instructions: By clicking ‘generate’, a list of characters will be
+            randomly selected for a two player versus. Each player will have
+            half of the Smash Ultimate roster, with one player having a random
+            wildcard character. By clicking a character in each round, that
+            immediately sets it as the winner of the match, and the next match
+            begins. When all the matches have been played and recorded, the
+            result of the Iron man Versus will show.
+          </div>
+        )}
         <button
           onClick={handleRegenerationClick}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           {numRandomizations > 0 ? 'Regenerate' : 'Generate'}
         </button>
-      </div>
+      </section>
       {numRandomizations === 0 ? (
         <></>
       ) : (
