@@ -118,6 +118,8 @@ const CharacterMatcher: React.FC<CharacterMatcherProps> = ({ characters }) => {
         });
       }
 
+      // reservado para el scrolling
+
       const matchResults: Array<MatchResult> = [
         ...versusResults.matchResults,
         { matchNumber: versusCurrentMatch.matchNumber, winner, loser },
